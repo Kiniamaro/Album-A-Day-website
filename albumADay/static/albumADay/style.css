@@ -1,0 +1,40 @@
+
+body {
+    background-color: #202020;
+    text-align: center;
+    font-family: sans-serif, monospace;
+}
+
+#header {
+    background-color: #2288EE;
+    border: 1px solid;
+
+}
+
+#albums {
+    margin-left: 200px;
+    margin-right: 200px;
+    padding-top: 50px;
+}
+
+.infos {
+    color:#003399;
+}
+
+.album_info {
+    text-align: left;
+    padding-top: 50px;
+    width: 100%;
+}
+
+.album_cover {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 5px;
+}
+
+.album_cover_big {
+    float: left;
+    padding-right: 10px;
+}

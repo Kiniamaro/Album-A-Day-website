@@ -12,7 +12,7 @@ class Album(models.Model):
     album_name = models.CharField(max_length=200)
     album_artist = models.CharField(max_length=500)
     album_year = models.IntegerField()
-    ablum_comments = models.TextField()
+    ablum_comments = models.TextField() # I won't change this typo deal with it
     album_cover = models.CharField(max_length=500)
     genre = models.ManyToManyField(Genre)
     pub_date = models.DateTimeField('date published')

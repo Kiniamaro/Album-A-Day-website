@@ -1,7 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
+
+from albumADay.models import Album
 
 def index(request):
-    return HttpResponse("Hello, this is the index")
+    
+    album_list = Album.objects.order_by('pub_date')
+    context = {'album_list': album_list}
+    return render(request, 'albumADay/index.html', context)
+    
+def detail(request, album_id):
+    album = Album.objects.get(id=album_id)
+    context = {'album': album}
+    return render(request, 'albumADay/detail.html', context)
 
