@@ -42,6 +42,17 @@ h1 {
     margin: 5px;
 }
 
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	border-radius:5px;
+	padding:10px;
+	color:antiquewhite;
+	font-size:12px Sans-Serif;
+}
+
 .album_cover_big {
     float: left;
     padding-right: 10px;

@@ -6,6 +6,7 @@
         {% load staticfiles %}
        <link rel="stylesheet" type="text/css" href="{% static 'albumADay/style.css' %}" />
        <script src="https://raw.github.com/HubSpot/pace/v1.0.0/pace.min.js"></script>
+       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     </head>
     <body>
         <header id="header">
@@ -14,11 +15,32 @@
         <div id="albums">
             {% if album_list %}
                 {% for album in album_list %}
-                    <a href="/{{ album.id }}"><img class="album_cover" src="{{album.album_cover}}" \></a>
+                    <a href="/{{ album.id }}"><img class="album_cover" src="{{album.album_cover}}" title="{{album.album_artist}} - {{album.album_name}}" \></a>
                 {% endfor %}
             {% else %}
                 <p>No Albums available</p>
             {% endif %}
         </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+            $('.album_cover').hover(function(){
+                var title = $(this).attr('title');
+                $(this).data('tipText', title).removeAttr('title');
+                $('<p class="tooltip"></p>')
+                .text(title)
+                .appendTo('body')
+                .fadeIn('fast');
+            }, function() {
+                $(this).attr('title', $(this).data('tipText'));
+                $('.tooltip').remove();
+            }).mousemove(function(e) {
+                var mousex = e.pageX + 20;
+                var mousey = e.pageY + 10;
+                $('.tooltip')
+                .css({ top: mousey, left: mousex })
+                });
+            });
+        </script>
+        
     </body>
 </html>
