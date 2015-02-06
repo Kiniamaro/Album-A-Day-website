@@ -13,42 +13,32 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Album',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
-                ('album_Name', models.CharField(max_length=200)),
-                ('album_Artist', models.CharField(max_length=500)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('album_name', models.CharField(max_length=200)),
+                ('album_artist', models.CharField(max_length=500)),
                 ('album_year', models.IntegerField()),
                 ('ablum_comments', models.TextField()),
                 ('album_cover', models.CharField(max_length=500)),
-                ('pub_date', models.DateTimeField(verbose_name='date published')),
+                ('pub_date', models.DateTimeField(verbose_name=b'date published')),
             ],
-            options=None,
-            bases=None,
-            managers=None,
-        ),
-        migrations.CreateModel(
-            name='AlbumGenre',
-            fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
-                ('album', models.ForeignKey(to='albumADay.Album')),
-            ],
-            options=None,
-            bases=None,
-            managers=None,
+            options={
+            },
+            bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='Genre',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('genre_name', models.CharField(max_length=200)),
             ],
-            options=None,
-            bases=None,
-            managers=None,
+            options={
+            },
+            bases=(models.Model,),
         ),
         migrations.AddField(
-            model_name='albumgenre',
+            model_name='album',
             name='genre',
-            field=models.ForeignKey(to='albumADay.Genre'),
+            field=models.ManyToManyField(to='albumADay.Genre'),
             preserve_default=True,
         ),
     ]
