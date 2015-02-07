@@ -67,6 +67,7 @@ h1 {
 	padding:10px;
 	color:antiquewhite;
 	font-size:12px Sans-Serif;
+	z-index:2;
 }
 
 .album_cover_big {
