@@ -15,10 +15,10 @@
         <div id="albums">
             {% if album_list %}
                 {% for album in album_list %}
-                    <div class="image_container">
-                        <a href="/{{ album.id }}"><img class="album_cover" src="{{album.album_cover}}" title="{{album.album_artist}} - {{album.album_name}}" /></a>
+                    <div class="image_container" title="{{album.album_artist}} - {{album.album_name}}">
+                        <a href="/{{ album.id }}"><img class="album_cover" src="{{album.album_cover}}"/>
                         {% if album.album_star %}
-                            <img class="star" src="{% static 'albumADay/star.gif' %}"/>
+                            <img class="star" src="{% static 'albumADay/star.gif' %}"/></a>
                         {% endif %}
                     </div>
                 {% endfor %}
@@ -28,7 +28,7 @@
         </div>
         <script type="text/javascript">
             $(document).ready(function() {
-            $('.album_cover').hover(function(){
+            $('.image_container').hover(function(){
                 var title = $(this).attr('title');
                 $(this).data('tipText', title).removeAttr('title');
                 $('<p class="tooltip"></p>')
