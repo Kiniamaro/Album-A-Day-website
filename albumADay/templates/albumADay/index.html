@@ -15,7 +15,12 @@
         <div id="albums">
             {% if album_list %}
                 {% for album in album_list %}
-                    <a href="/{{ album.id }}"><img class="album_cover" src="{{album.album_cover}}" title="{{album.album_artist}} - {{album.album_name}}" \></a>
+                    <div class="image_container">
+                        <a href="/{{ album.id }}"><img class="album_cover" src="{{album.album_cover}}" title="{{album.album_artist}} - {{album.album_name}}" /></a>
+                        {% if album.album_star %}
+                            <img class="star" src="{% static 'albumADay/star.gif' %}"/>
+                        {% endif %}
+                    </div>
                 {% endfor %}
             {% else %}
                 <p>No Albums available</p>

@@ -23,6 +23,7 @@ h1 {
     margin-left: 200px;
     margin-right: 200px;
     padding-top: 50px;
+    overflow:auto;
 }
 
 .infos {
@@ -38,8 +39,23 @@ h1 {
 .album_cover {
     width: 100px;
     height: 100px;
-    float: left;
     margin: 5px;
+    z-index:0;
+}
+
+.image_container {
+    position:relative;
+    float:left;
+}
+
+.star {
+    position:absolute;
+    float:left;
+    z-index:1;
+    left:7px;
+    top:7px;
+    height:24px;
+    width:24px;
 }
 
 .tooltip {
